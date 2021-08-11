@@ -32,7 +32,7 @@ const Layout: React.FC<KanbanProps> = props => {
   const onDragEnd = () => {
     if (dragItem.column === startColumn) return;
     const newCol = columns.findIndex(c => c.type === startColumn)
-    columns[newCol].items = columns[newCol].items.filter(i => i.id !== dragItem.id);
+    columns[newCol].items = columns[newCol].items.filter(i => i.id !== dragItem.item.id);
     const oldCol = columns.findIndex(c => c.type === dragItem.column);
     columns[oldCol].items.push(dragItem.item);
     setColumns(columns);
